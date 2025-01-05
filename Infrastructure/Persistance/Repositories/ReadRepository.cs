@@ -16,7 +16,26 @@ namespace Persistance.Repositories
             _context = context;
         }
 
-        private DbSet<T> Table { get => _context.Set<T>(); }
+        //private DbSet<T> Table { get => _context.Set<T>(); }
+
+        private DbSet<T> Table
+        {
+            get
+            {
+                if (_context == null)
+                {
+                    Console.WriteLine("context null");
+                }
+
+                var dbSet = _context.Set<T>();
+                if (dbSet == null)
+                {
+                    Console.WriteLine("db set null");
+                }
+
+                return dbSet;
+            }
+        }
         public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>>? predicate = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, bool enableTracking = false)
         {
             IQueryable<T> queryable = Table;
