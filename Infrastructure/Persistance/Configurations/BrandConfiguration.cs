@@ -8,7 +8,7 @@ namespace Persistance.Configurations
     {
         public void Configure(EntityTypeBuilder<Brand> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(b => b.Name).IsRequired().HasMaxLength(50);
         }
     }
 }
