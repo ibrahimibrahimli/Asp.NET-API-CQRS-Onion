@@ -16,10 +16,10 @@ namespace Persistance.Repositories
             _context = context;
         }
 
-        private DbSet<T> _entities { get => _context.Set<T>(); }
+        private DbSet<T> Table { get => _context.Set<T>(); }
         public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>>? predicate = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, bool enableTracking = false)
         {
-            IQueryable<T> queryable = _entities;
+            IQueryable<T> queryable = Table;
             if(!enableTracking)
                 queryable = queryable.AsNoTracking();
             if(include is not null)
@@ -33,7 +33,7 @@ namespace Persistance.Repositories
 
         public async Task<List<T>> GetAllByPaginationAsync(Expression<Func<T, bool>>? predicate = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, bool enableTracking = false, int currentPage = 1, int pageSize = 3)
         {
-            IQueryable<T> queryable = _entities;
+            IQueryable<T> queryable = Table;
             if (!enableTracking)
                 queryable = queryable.AsNoTracking();
             if (include is not null)
@@ -49,7 +49,7 @@ namespace Persistance.Repositories
 
         public async Task<T?> GetAsync(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, bool enableTracking = false)
         {
-            IQueryable<T> queryable = _entities;
+            IQueryable<T> queryable = Table;
             if (!enableTracking)
                 queryable = queryable.AsNoTracking();
             if (include is not null)
@@ -61,19 +61,19 @@ namespace Persistance.Repositories
         public IQueryable<T> Find(Expression<Func<T, bool>> predicate, bool enableTracking = false)
         {
             if (!enableTracking)
-                _entities.AsNoTracking();
+                Table.AsNoTracking();
 
-            return _entities.Where(predicate);
+            return Table.Where(predicate);
         }
 
         public async Task<int> CountAsync(Expression<Func<T, bool>>? predicate = null)
         {
-            _entities.AsNoTracking();
+            Table.AsNoTracking();
             if (predicate is not null)
                 //return await _entities.Where(predicate).CountAsync();
-                _entities.Where(predicate);
+                Table.Where(predicate);
 
-            return await _entities.CountAsync();
+            return await Table.CountAsync();
         }
     }
 }
