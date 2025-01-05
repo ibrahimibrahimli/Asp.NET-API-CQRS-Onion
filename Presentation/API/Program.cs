@@ -1,5 +1,8 @@
 
+using Application;
+using Application.Repositories;
 using Persistance;
+using System.Xml;
 
 namespace API
 {
@@ -22,6 +25,7 @@ namespace API
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional:true);
 
             builder.Services.AddPersistance(builder.Configuration);
+            builder.Services.AddApplication();
 
             var app = builder.Build();
 
@@ -36,6 +40,7 @@ namespace API
 
 
             app.MapControllers();
+
 
             app.Run();
         }

@@ -20,6 +20,8 @@ namespace Persistance
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
         }
     }
 }
