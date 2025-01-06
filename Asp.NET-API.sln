@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8A09426A-C9FB-46EB-AD71-3AAE85AB10B3}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Infrastructure\Persistance\Persistance.csproj", "{0903F2F4-CA0A-4C2C-BF56-F6115E1B740A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "Presentation\API\API.csproj", "{BB4569C1-2FB8-4177-8F5C-64A535D0B636}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapper", "Mapper\Mapper.csproj", "{219CCA4D-04BE-4CF2-BF58-6B1E09C31037}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{BB4569C1-2FB8-4177-8F5C-64A535D0B636}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB4569C1-2FB8-4177-8F5C-64A535D0B636}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB4569C1-2FB8-4177-8F5C-64A535D0B636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{219CCA4D-04BE-4CF2-BF58-6B1E09C31037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{219CCA4D-04BE-4CF2-BF58-6B1E09C31037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{219CCA4D-04BE-4CF2-BF58-6B1E09C31037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{219CCA4D-04BE-4CF2-BF58-6B1E09C31037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,6 @@ Global
 		{F1C4BB5A-FFC0-4F83-A3D2-589CAF59A955} = {133A0AE9-CD78-48C7-879E-4897BBAD7BFF}
 		{0903F2F4-CA0A-4C2C-BF56-F6115E1B740A} = {133A0AE9-CD78-48C7-879E-4897BBAD7BFF}
 		{BB4569C1-2FB8-4177-8F5C-64A535D0B636} = {21B1D8B6-0D9B-4D60-B688-F98A45D830C0}
+		{219CCA4D-04BE-4CF2-BF58-6B1E09C31037} = {8A09426A-C9FB-46EB-AD71-3AAE85AB10B3}
 	EndGlobalSection
 EndGlobal
