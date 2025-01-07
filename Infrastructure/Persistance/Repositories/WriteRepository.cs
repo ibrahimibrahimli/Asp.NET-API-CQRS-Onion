@@ -7,9 +7,9 @@ namespace Persistance.Repositories
 {
     public class WriteRepository<T> : IWriteRepository<T> where T : class, IBaseEntity, new()
     {
-        private readonly ApplicationDbContext? _context;
+        private readonly ApplicationDbContext _context;
 
-        public WriteRepository(ApplicationDbContext? context)
+        public WriteRepository(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -29,6 +29,11 @@ namespace Persistance.Repositories
         public async Task HardDeleteAsync(T entity)
         {
             await Task.Run(()=> Table.Remove(entity));
+        }
+
+        public async Task HardDeleteRangeAsync(IList<T> entity)
+        {
+           await Task.Run(() => Table.RemoveRange(entity));
         }
 
         public Task SoftDeleteAsync(T entity)
