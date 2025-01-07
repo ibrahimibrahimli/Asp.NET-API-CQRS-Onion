@@ -1,8 +1,7 @@
 
 using Application;
-using Application.Repositories;
+using Mapper;
 using Persistance;
-using System.Xml;
 
 namespace API
 {
@@ -26,6 +25,7 @@ namespace API
 
             builder.Services.AddPersistance(builder.Configuration);
             builder.Services.AddApplication();
+            builder.Services.AddCustomMapper();
 
             var app = builder.Build();
 
