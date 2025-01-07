@@ -4,6 +4,19 @@ namespace Domain.Entities
 {
     public class Product : BaseEntity
     {
+        public Product()
+        {
+            
+        }
+        public Product(string title, string description, decimal price, int brandId, decimal discount)
+        {
+            Title = title;
+            Description = description;
+            Price = price;
+            BrandId = brandId;
+            Discount = discount;
+        }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public int BrandId { get; set; }
@@ -12,6 +25,6 @@ namespace Domain.Entities
         public decimal Discount { get; set; }
 
         public virtual Brand Brand { get; set; }
-        public ICollection<Category> Categories { get; set; }
+        public ICollection<ProductCategory> ProductCategories { get; set; }
     }
 }
