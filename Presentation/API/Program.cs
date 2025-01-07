@@ -1,5 +1,6 @@
 
 using Application;
+using Application.Exceptions;
 using Mapper;
 using Persistance;
 
@@ -38,6 +39,7 @@ namespace API
 
             app.UseAuthorization();
 
+            app.ConfigureExceptionHandlingMiddleware();
 
             app.MapControllers();
 

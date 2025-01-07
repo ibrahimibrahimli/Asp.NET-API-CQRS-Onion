@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Application.Exceptions;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace Application
@@ -9,6 +10,7 @@ namespace Application
         {
             var assembly = Assembly.GetExecutingAssembly();
 
+            services.AddTransient<ExceptionMiddleware>();
             services.AddMediatR(config => config.RegisterServicesFromAssembly(assembly));
         }
     }
