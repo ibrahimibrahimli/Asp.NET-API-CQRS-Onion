@@ -28,7 +28,8 @@ namespace Application.Features.Products.Queries.GetAllProducts
             {
                 item.Price -= ((item.Price * item.Discount) / 100);
             }
-            return map;
+
+            throw new Exception("Mapper can't run");
         }
     }
 }

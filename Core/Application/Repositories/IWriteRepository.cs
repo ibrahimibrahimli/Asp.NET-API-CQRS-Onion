@@ -8,7 +8,7 @@ namespace Application.Repositories
         Task AddRangeAsync (IList<T> entities);
         Task UpdateAsync (T entity);
         Task HardDeleteAsync (T entity);    
-        Task HardDeleteRangeAsync (IList<T entity);    
+        Task HardDeleteRangeAsync (IList<T> entity);    
         Task SoftDeleteAsync (T entity);    
     }
 }

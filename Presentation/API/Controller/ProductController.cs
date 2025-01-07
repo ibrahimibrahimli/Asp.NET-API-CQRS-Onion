@@ -40,7 +40,7 @@ namespace API.Controller
             return Ok();
         }
 
-        [HttpPost]
+        [HttpDelete]
         public async Task<IActionResult> DeleteProduct(UpdateProductCommandRequest request)
         {
             await mediator.Send(request);
