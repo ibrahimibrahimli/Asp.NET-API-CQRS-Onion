@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using SendGrid;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using SendGrid.Helpers.Errors.Model;
-using System.ComponentModel.DataAnnotations;
 
 namespace Application.Exceptions
 {
-	public class ExceptionMiddleware : IMiddleware
+    public class ExceptionMiddleware : IMiddleware
 	{
 		public async Task InvokeAsync(HttpContext context, RequestDelegate next)
 		{
@@ -24,6 +23,14 @@ namespace Application.Exceptions
 			int statusCode = GetStatusCode(exception);
 			context.Response.ContentType = "application/json";
 			context.Response.StatusCode = statusCode;
+
+			if(exception.GetType()== typeof(ValidationException))
+				return context.Response.WriteAsync(new ExceptionModel
+				{
+					Errors = ((ValidationException)exception).Errors.Select(e => e.ErrorMessage),
+					StatusCode = StatusCodes.Status400BadRequest,
+				}.ToString()); 
+			
 
 			List<string> errors = new()
    {
