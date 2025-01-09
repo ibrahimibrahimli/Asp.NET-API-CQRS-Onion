@@ -1,4 +1,7 @@
-﻿using Application.Exceptions;
+﻿using Application.Behaviors;
+using Application.Exceptions;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -12,6 +15,10 @@ namespace Application
 
             services.AddTransient<ExceptionMiddleware>();
             services.AddMediatR(config => config.RegisterServicesFromAssembly(assembly));
+
+            services.AddValidatorsFromAssembly(assembly);
+            ValidatorOptions.Global.LanguageManager.Culture = new System.Globalization.CultureInfo("en-US");
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehavior<,>));
         }
     }
 }
