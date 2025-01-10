@@ -1,6 +1,8 @@
-﻿namespace Application.BaseMessages
+﻿using System.Globalization;
+
+namespace Application.Bases
 {
-    public class UiMessages
+    public class BaseUiMessages
     {
         public static string NOT_FIND_DATA = "Məlumat tapılmadı";
 
@@ -31,6 +33,8 @@
         public const string PASSWORD_NOT_CONTAIN_LOWERCASE = "Şifrəniz böyük hərflər ehtiva etmir";
         public const string PASSWORD_NOT_CONTAIN_NUMBER = "Şifrəniz rəqəm ehtiva etmir";
         public const string PASSWORD_NOT_CONTAIN_SYMBOL = "Şifrəniz ən az birini ehtiva etməlidir (!.@.#)";
+
+        public const string EXCEPTION_TITLE_NOT_SAME = "Başlıq eyni ola bilməz";
 
         public static string SuccessAddedMessage(string propName)
         {

@@ -1,4 +1,4 @@
-﻿using Application.BaseMessages;
+﻿using Application.Bases;
 using FluentValidation;
 
 namespace Application.Features.Products.Commands.CreateProduct
@@ -9,19 +9,19 @@ namespace Application.Features.Products.Commands.CreateProduct
         {
             RuleFor(p => p.Title)
                 .NotEmpty()
-                .WithMessage(UiMessages.NOT_EMPTY_MESSAGE)
+                .WithMessage(BaseUiMessages.NOT_EMPTY_MESSAGE)
                 .MinimumLength(3)
-                .WithMessage(UiMessages.MINIMUM_3_SYMBOL_MESSAGE)
+                .WithMessage(BaseUiMessages.MINIMUM_3_SYMBOL_MESSAGE)
                 .MaximumLength(100)
-                .WithMessage(UiMessages.MAXIMUM_100_SYMBOL_MESSAGE);
+                .WithMessage(BaseUiMessages.MAXIMUM_100_SYMBOL_MESSAGE);
 
             RuleFor(p => p.Description)
                 .NotEmpty()
-                .WithMessage(UiMessages.NOT_EMPTY_MESSAGE)
+                .WithMessage(BaseUiMessages.NOT_EMPTY_MESSAGE)
                 .MinimumLength(3)
-                .WithMessage(UiMessages.MINIMUM_3_SYMBOL_MESSAGE)
+                .WithMessage(BaseUiMessages.MINIMUM_3_SYMBOL_MESSAGE)
                 .MaximumLength(1000)
-                .WithMessage(UiMessages.MAXIMUM_1000_SYMBOL_MESSAGE);
+                .WithMessage(BaseUiMessages.MAXIMUM_1000_SYMBOL_MESSAGE);
 
             RuleFor(p => p.BrandId)
                 .NotEmpty()

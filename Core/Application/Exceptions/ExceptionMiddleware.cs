@@ -35,8 +35,6 @@ namespace Application.Exceptions
 			List<string> errors = new()
    {
                 exception.Message,
-                exception.InnerException?.ToString(),
-                exception.StackTrace
    };
 
 			return context.Response.WriteAsync(new ExceptionModel

@@ -1,4 +1,4 @@
-﻿using Application.BaseMessages;
+﻿using Application.Bases;
 using FluentValidation;
 
 namespace Application.Features.Products.Commands.DeleteProduct
@@ -9,9 +9,9 @@ namespace Application.Features.Products.Commands.DeleteProduct
         {
             RuleFor(p => p.Id)
                 .NotEmpty()
-                .WithMessage(UiMessages.NOT_EMPTY_MESSAGE)
+                .WithMessage(BaseUiMessages.NOT_EMPTY_MESSAGE)
                 .GreaterThan(0)
-                .WithMessage(UiMessages.GREATER_THAN_0);
+                .WithMessage(BaseUiMessages.GREATER_THAN_0);
         }
     }
 }
