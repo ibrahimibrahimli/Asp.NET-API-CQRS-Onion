@@ -1,6 +1,6 @@
-
 using Application;
 using Application.Exceptions;
+using Infrastructure;
 using Mapper;
 using Persistance;
 
@@ -25,6 +25,7 @@ namespace API
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional:true);
 
             builder.Services.AddPersistance(builder.Configuration);
+            builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.AddApplication();
             builder.Services.AddCustomMapper();
 
