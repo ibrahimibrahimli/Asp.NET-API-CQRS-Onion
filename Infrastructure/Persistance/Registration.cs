@@ -1,5 +1,5 @@
-﻿using Application.Repositories;
-using Application.UoW;
+﻿using Application.Abstracts.Repositories;
+using Application.Abstracts.UoW;
 using Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

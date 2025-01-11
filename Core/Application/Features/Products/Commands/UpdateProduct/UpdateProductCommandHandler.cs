@@ -1,5 +1,5 @@
 ﻿using Application.Abstracts.AutoMapper;
-using Application.UoW;
+using Application.Abstracts.UoW;
 using Domain.Entities;
 using MediatR;
 

@@ -1,4 +1,4 @@
-﻿using Application.Repositories;
+﻿using Application.Abstracts.Repositories;
 using Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
