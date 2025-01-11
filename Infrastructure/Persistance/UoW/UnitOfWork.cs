@@ -1,5 +1,5 @@
-﻿using Application.Repositories;
-using Application.UoW;
+﻿using Application.Abstracts.Repositories;
+using Application.Abstracts.UoW;
 using Persistance.Context;
 using Persistance.Repositories;
 

@@ -1,9 +1,9 @@
-﻿using Application.UoW;
-using MediatR;
+﻿using MediatR;
 using Domain.Entities;
 using Application.Abstracts.AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Application.DTOs;
+using Application.Abstracts.UoW;
 
 namespace Application.Features.Products.Queries.GetAllProducts
 {

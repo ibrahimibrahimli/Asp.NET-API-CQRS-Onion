@@ -1,5 +1,5 @@
-﻿using Application.Features.Products.Rules;
-using Application.UoW;
+﻿using Application.Abstracts.UoW;
+using Application.Features.Products.Rules;
 using Domain.Entities;
 using MediatR;
 
