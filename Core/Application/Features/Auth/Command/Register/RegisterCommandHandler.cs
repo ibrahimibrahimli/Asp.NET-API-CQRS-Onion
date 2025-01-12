@@ -27,7 +27,6 @@ namespace Application.Features.Auth.Command.Register
             await _authRules.UserShouldNotBeExist(await _userManager.FindByEmailAsync(request.Email));
 
             User user = _mapper.Map<User, RegisterCommandRequest>(request);
-            user.FullName = $"{request.Name} {request.Surname}";
             user.SecurityStamp = Guid.NewGuid().ToString();
 
             IdentityResult result = await _userManager.CreateAsync(user, request.Password);

@@ -4,6 +4,6 @@ namespace Application.Features.Auth.Exceptions
 {
     public class UserAlreadyExistException : BaseException
     {
-        public UserAlreadyExistException() : base("This user already registered") { }
+        public UserAlreadyExistException() : base(BaseUiMessages.EXCEPTION_USER_ALREADY_EXISTS) { }
     }
 }
