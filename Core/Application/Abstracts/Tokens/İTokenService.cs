@@ -8,6 +8,6 @@ namespace Application.Abstracts.Tokens
     {
         Task<JwtSecurityToken> CreateToken(User user, IList<string> roles);
         string GenerateRefreshToken();
-        ClaimsPrincipal? GetPrincipialFromExpiredToken();
+        ClaimsPrincipal? GetPrincipialFromExpiredToken(string? token);
     }
 }
