@@ -20,6 +20,9 @@ namespace API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             var env = builder.Environment;
             builder.Configuration.SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional:false)
