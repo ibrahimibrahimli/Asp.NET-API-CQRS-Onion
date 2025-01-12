@@ -1,16 +1,17 @@
-﻿using Application.Abstracts.UoW;
+﻿using Application.Abstracts.AutoMapper;
+using Application.Abstracts.UoW;
+using Application.Bases;
 using Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace Application.Features.Products.Commands.DeleteProduct
 {
-    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest, Unit>
+    public class DeleteProductCommandHandler : BaseHandler, IRequestHandler<DeleteProductCommandRequest, Unit>
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteProductCommandHandler(IUnitOfWork unitOfWork)
+        public DeleteProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : base(mapper, unitOfWork, httpContextAccessor)
         {
-            _unitOfWork = unitOfWork;
         }
 
         public async Task<Unit> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
