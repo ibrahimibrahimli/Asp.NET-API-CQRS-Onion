@@ -1,6 +1,8 @@
 ﻿using Application.Features.Auth.Command.Login;
 using Application.Features.Auth.Command.RefreshToken;
 using Application.Features.Auth.Command.Register;
+using Application.Features.Auth.Command.Revoke;
+using Application.Features.Auth.Command.RevokeAll;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -45,6 +47,21 @@ namespace API.Controller
                 return StatusCode(StatusCodes.Status404NotFound);
             else
                 return Ok(response);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Revoke(RevokeCommandRequest request)
+        {
+            await _mediator.Send(request);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RevokeAll()
+        {
+            await _mediator.Send(new RevokeAllCommandRequest());
+            return Ok();
         }
     }
 }
