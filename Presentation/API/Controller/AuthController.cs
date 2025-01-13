@@ -1,4 +1,5 @@
 ﻿using Application.Features.Auth.Command.Login;
+using Application.Features.Auth.Command.RefreshToken;
 using Application.Features.Auth.Command.Register;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,17 @@ namespace API.Controller
         [HttpPost]
 
         public async Task<IActionResult> Login(LoginCommandRequest request)
+        {
+            var response = await _mediator.Send(request);
+            if (response is null)
+                return StatusCode(StatusCodes.Status404NotFound);
+            else
+                return Ok(response);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> RefreshToken(RefreshTokenCommandRequest request)
         {
             var response = await _mediator.Send(request);
             if (response is null)

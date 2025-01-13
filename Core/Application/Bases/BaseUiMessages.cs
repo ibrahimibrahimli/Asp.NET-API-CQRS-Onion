@@ -37,6 +37,7 @@ namespace Application.Bases
         public const string EXCEPTION_TITLE_NOT_SAME = "Başlıq eyni ola bilməz";
         public const string EXCEPTION_EMAIL_OR_PASSWORD_NOT_VALID  = "Email və ya şifrə yanlışdır";
         public const string EXCEPTION_USER_ALREADY_EXISTS  = "Bu istifadəçi artıq qeydiyyatdan keçib";
+        public const string EXCEPTION_REFRESH_TOKEN_EXPIRED  = "Yenidən Daxil olun";
 
         public static string SuccessAddedMessage(string propName)
         {
