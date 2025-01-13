@@ -6,22 +6,28 @@ namespace Application.Features.Auth.Rules
 {
     public class AuthRules : BaseRules
     {
-        public Task UserShouldNotBeExist(User? user)
+        internal Task UserShouldNotBeExist(User? user)
         {
             if (user is not null) throw new UserAlreadyExistException();
             return Task.CompletedTask;
         }
 
-        public Task EmailOrPasswordNotValid(User? user, bool checkPassword)
+        internal Task EmailOrPasswordNotValid(User? user, bool checkPassword)
         {
             if (user is null || checkPassword) throw new EmailOrPasswordNotValidException();
             return Task.CompletedTask;
         }
 
-        public Task RefreshTokenExpiryTime(DateTime? expiredTime)
+        internal Task RefreshTokenExpiryTime(DateTime? expiredTime)
         {
             if (expiredTime <= DateTime.Now) throw new RefreshTokenExpiryTimeException();
                 return Task.CompletedTask;
+        }
+
+        internal Task EmailAdressNotValid(User? user)
+        {
+            if (user is null) throw new EmailAdressNotValidException();
+            return Task.CompletedTask;
         }
     }
 }
