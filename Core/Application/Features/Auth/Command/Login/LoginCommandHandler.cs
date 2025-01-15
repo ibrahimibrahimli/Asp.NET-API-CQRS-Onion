@@ -25,7 +25,7 @@ namespace Application.Features.Auth.Command.Login
             _userManager = userManager;
             _authRules = authRules;
             _tokenService = tokenService;
-            _.configuration = configuration;
+            _configuration = configuration;
         }
 
         public async Task<LoginCommandResponse> Handle(LoginCommandRequest request, CancellationToken cancellationToken)
