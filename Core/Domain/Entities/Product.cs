@@ -23,6 +23,7 @@ namespace Domain.Entities
         //public required string ImagePath { get; set; }
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
+        public decimal Quantity { get; set; }
 
         public virtual Brand Brand { get; set; }
         public ICollection<ProductCategory> ProductCategories { get; set; }
