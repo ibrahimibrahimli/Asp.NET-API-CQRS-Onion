@@ -29,7 +29,7 @@ namespace Infrastructure.Services.MailServices
             mail.Subject = subject;
             mail.Body = body;
 
-            mail.From = new(_configuration["Mail:Username"], "Montela", Encoding.UTF8);
+            mail.From = new(_configuration["Mail:Username"], "Api", Encoding.UTF8);
 
             SmtpClient smtp = new SmtpClient();
             smtp.Credentials = new NetworkCredential(_configuration["Mail:Username"], _configuration["Mail:Password"]);
