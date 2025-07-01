@@ -48,7 +48,7 @@ namespace Infrastructure.Tokens
 
         public string GenerateRefreshToken()
         {
-            var randomNumber = new byte[64];
+            var randomNumber = new byte[32];
             var rng = RandomNumberGenerator.Create();
             rng.GetBytes(randomNumber);
             return Convert.ToBase64String(randomNumber);
