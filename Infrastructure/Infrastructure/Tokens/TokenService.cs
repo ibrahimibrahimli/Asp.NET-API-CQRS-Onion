@@ -61,6 +61,8 @@ namespace Infrastructure.Tokens
                 ValidateIssuer = false,
                 ValidateAudience = false,
                 ValidateIssuerSigningKey = true,
+                ValidIssuer = _tokenSettings.Issuer,
+                ValidAudience = _tokenSettings.Audience,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings.Secret)),
                 ValidateLifetime = false,
             };
