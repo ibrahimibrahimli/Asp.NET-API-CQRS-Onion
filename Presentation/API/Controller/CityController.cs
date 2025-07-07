@@ -2,6 +2,7 @@
 using Application.Features.Cities.Commands.Delete;
 using Application.Features.Cities.Dtos;
 using Application.Features.Cities.Queries;
+using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,23 +14,27 @@ namespace FitCircleAPI.Controllers
     public class CityController : ControllerBase
     {
         public readonly IMediator _mediatr;
+        private readonly IMapper _mapper;
 
-        public CityController(IMediator mediatr)
+        public CityController(IMediator mediatr, IMapper mapper)
         {
             _mediatr = mediatr;
+            _mapper = mapper;
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromBody] CreateCityDto dto)
         {
-            var commandRequest = new CreateCityCommandRequest(dto);
-            var city = await _mediatr.Send(commandRequest);
-            return CreatedAtAction(nameof(Create), city);
+            var commandRequest = _mapper.Map<CreateCityCommandRequest>(dto);
+            var result = await _mediatr.Send(commandRequest);
+            if (!result)
+                return BadRequest(result);
+
+            return CreatedAtAction(nameof(Create), result);
         }
 
         [HttpGet]
-
         public async Task<IActionResult> GetAllCities()
         {
             var cities = _mediatr.Send(new GetAllCitiesQueryRequest());
@@ -46,10 +51,10 @@ namespace FitCircleAPI.Controllers
         {
             var result = await _mediatr.Send(request);
 
-            if (!result)
-                return NotFound(new { Message = "City not found" });
+            if (!result.IsSuccess)
+                return NotFound(result);
 
-            return NoContent();
+            return Ok(result);
         }
     }
 }
