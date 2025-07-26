@@ -48,7 +48,7 @@ namespace Infrastructure.Tokens
 
         public string GenerateRefreshToken()
         {
-            var randomNumber = new byte[64];
+            var randomNumber = new byte[32];
             var rng = RandomNumberGenerator.Create();
             rng.GetBytes(randomNumber);
             return Convert.ToBase64String(randomNumber);
@@ -61,6 +61,8 @@ namespace Infrastructure.Tokens
                 ValidateIssuer = false,
                 ValidateAudience = false,
                 ValidateIssuerSigningKey = true,
+                ValidIssuer = _tokenSettings.Issuer,
+                ValidAudience = _tokenSettings.Audience,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings.Secret)),
                 ValidateLifetime = false,
             };
